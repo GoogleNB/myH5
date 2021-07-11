@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+			#outer img{
+				width: 1000px;
+			}
+			#outer{
+				margin: 0 auto;
+				width: 1000px;
+				text-align: center;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var index =0;
+				var tu=["img/1.jpg","img/2.png","img/3.png","img/4.png"]
+				var shang =document.getElementById("prev");
+				var xia=document.getElementById("next");
+				var img =document.getElementsByTagName("img")[0];
+				var zhang =document.getElementsByTagName("p")[0];
+				
+				shang.onclick=function(){
+					index--;
+					if(index<0){
+						index=tu.length-1;
+					}
+					img.src=tu[index];
+					zhang.innerHTML="一共"+tu.length+"张图 当前第"+(index+1)+"张";
+				};
+				xia.onclick=function(){
+					index++;
+					if(index>tu.length-1){
+						index=0;
+					}
+					img.src=tu[index];
+					zhang.innerHTML="一共"+tu.length+"张图 当前第"+(index+1)+"张";
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<p>一共4张图 当前第1张</p>
+			<img src="img/1.jpg" alt="刻晴" title="刻晴">
+			<button id="prev" type="button">上一张</button>
+			<button id="next" type="button">下一张</button>
+		</div>
+	</body>
+</html>
